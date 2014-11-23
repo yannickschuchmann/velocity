@@ -2507,11 +2507,11 @@ return function (global, window, document, undefined) {
                             scrollPositionCurrent = opts.container["scroll" + scrollDirection]; /* GET */
 
                             /* $.position() values are relative to the container's currently viewable area (without taking into account the container's true dimensions
-                               -- say, for example, if the container was not overflowing). Thus, the scroll end value is the sum of the child element's position *and*
-                               the scroll container's current scroll position. */
+                               
+                           */
                             /* Note: jQuery does not offer a utility alias for $.position(), so we have to incur jQuery object conversion here.
                                This syncs up with an ensuing batch of GETs, so it fortunately does not trigger layout thrashing. */
-                            scrollPositionEnd = (scrollPositionCurrent + $(element).position()[scrollDirection.toLowerCase()]) + scrollOffset; /* GET */
+                            scrollPositionEnd = $(element).position()[scrollDirection.toLowerCase()] + scrollOffset; /* GET */
                         /* If a value other than a jQuery object or a raw DOM element was passed in, default to null so that this option is ignored. */
                         } else {
                             opts.container = null;
